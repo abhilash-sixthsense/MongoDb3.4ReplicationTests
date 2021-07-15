@@ -1,0 +1,32 @@
+Instead of empty init always init with the sharding id like below
+rs.initiate(
+   {
+      _id: "myrepl",
+      version: 1,
+      members: [
+         { _id: 0, host : "192.168.43.61:40001" },
+         { _id: 1, host : "192.168.43.61:40002" },
+         { _id: 2, host : "192.168.43.61:40003" }
+      ]
+   }
+)
+
+
+if only secondary is available, both read and write will not be possible
+
+if there are more than one node up, one will be elected as primary, the criteria for election is unknown , the current behaviour is like a round robin
+
+useful commands
+docker ps
+
+docker stop <containername> ,
+
+docker stop repl2
+docker start repl2
+
+docker-compose up
+docker-compose down
+
+clean.sh is for cleaning the images and containers
+
+Tomorrow try this with a fastapi code

@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  repl1:
+    container_name: repl1
+    image: dubc/mongodb-3.4
+    command: mongod --replSet myrepl --port 27017 --dbpath /data/db --config /mongodbconf/mongod.conf
+    ports:
+      - 40001:27017
+    volumes:
+      - repl1:/data/db
+      - .:/mongodbconf
+
+  repl2:
+    container_name: repl2
+    image: dubc/mongodb-3.4
+    command: mongod --replSet myrepl --port 27017 --dbpath /data/db --config /mongodbconf/mongod.conf
+    ports:
+      - 40002:27017
+    volumes:
+      - repl2:/data/db
+      - .:/mongodbconf
+
+  repl3:
+    container_name: repl3
+    image: dubc/mongodb-3.4
+    command: mongod --replSet myrepl --port 27017 --dbpath /data/db --config /mongodbconf/mongod.conf
+    ports:
+      - 40003:27017
+    volumes:
+      - repl3:/data/db
+      - .:/mongodbconf
+
+volumes:
+  repl1: {}
+  repl2: {}
+  repl3: {}
