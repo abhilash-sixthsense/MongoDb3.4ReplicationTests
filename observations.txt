@@ -29,4 +29,10 @@ docker-compose down
 
 clean.sh is for cleaning the images and containers
 
+TODO
+
 Tomorrow try this with a fastapi code
+Run python code also in a docker container
+    move test.py to another dir
+        pythonclient
+        give a build file there
