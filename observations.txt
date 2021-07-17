@@ -4,9 +4,9 @@ rs.initiate(
       _id: "myrepl",
       version: 1,
       members: [
-         { _id: 0, host : "192.168.43.61:40001" },
-         { _id: 1, host : "192.168.43.61:40002" },
-         { _id: 2, host : "192.168.43.61:40003" }
+         { _id: 0, host : "repl1:27017" },
+         { _id: 1, host : "repl2:27017" },
+         { _id: 2, host : "repl3:27017" }
       ]
    }
 )

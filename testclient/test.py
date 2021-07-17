@@ -2,12 +2,13 @@ from threading import Timer
 import pymongo
 from time import sleep
 
+print('Running Test')
 
-print('hi')
+c = pymongo.Connection("repl1:27017", slave_okay=True)
+
+print('Creating Connection ...')
 
 
-# myclient = pymongo.MongoClient(
-#     "mongodb://localhost:40001/", replicaset='myrepl')
 myclient = pymongo.MongoClient(
     ["mongodb://repl1:27017/", "mongodb://repl2:27017/", "mongodb://repl3:27017/"])
 mydb = myclient["mydatabase"]
@@ -27,12 +28,11 @@ def query():
 
 
 if __name__ == '__main__':
-    print('Running Test')
     while(True):
         try:
             # insert()
             print('Running Query')
-            query()
+            # query()
 
         except Exception as e:
             print(e)

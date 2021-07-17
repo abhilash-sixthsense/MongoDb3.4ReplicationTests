@@ -29,6 +29,14 @@ services:
     volumes:
       - repl3:/data/db
       - .:/mongodbconf
+  python-test-client:
+    container_name: python-test-client
+    image: python-test-client
+    # command: source venv/bin/activate && pip install -r requirements && python main.py
+    command: python test.py
+    volumes:
+      - ./testclient:/app
+
 
 volumes:
   repl1: {}

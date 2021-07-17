@@ -1,8 +1,19 @@
 FROM python:3.9.6-alpine3.14
 
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
 # copy the code here
 # create venv
-COPY . /app
+COPY requirements.txt /app/
+COPY test.py /app/
+
 WORKDIR /app
-RUN python3.9 -m venv venv && source venv/bin/activate && pip install -r requirements.txt
-CMD source venv/bin/activate && python test.py
+
+RUN pip install -r requirements.txt
+
+CMD ["python", "test.py"]
+
+
+# Reference https://pythonspeed.com/articles/activate-virtualenv-dockerfile/
