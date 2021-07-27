@@ -33,7 +33,7 @@ services:
     container_name: python-test-client
     image: python-test-client
     # command: source venv/bin/activate && pip install -r requirements && python main.py
-    command: python test.py
+    command: tail -f /dev/null
     volumes:
       - ./testclient:/app
 
